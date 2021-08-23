@@ -18,7 +18,7 @@ export class Git extends EventEmitter{
 		this.setDir(this.options.dir);
 	}
 
-	protected async gitExec(cmd: string): Promise<string> {
+	async gitExec(cmd: string): Promise<string> {
 		return new Promise<string>((resolve, reject) => {
 			const splitRegex = /'[^']+'|[^\s]+/g;
 			const commandArgs = cmd.match(splitRegex).map(e => e.replace(/'(.+)'/, "'$1'"));
